@@ -23,3 +23,34 @@ export const reviewCode=async(req,res)=>{
         console.log("review code ERROR ->",error);
     }
 }
+
+export const history=async(req,res)=>{
+    try {
+        const userId=req.userId
+        const reviews=await CodeReview.find({user:userId})
+        if(!reviews){
+            return res.status(400).json({message:"reviews not found"})
+        }
+
+        return res.status(200).json(reviews)
+    } catch (error) {
+        console.log("history ERROR -> ",error);
+        
+    }
+}
+
+export const singleReview=async(req,res)=>{
+    try {
+        const id=req.params
+
+        const review=await CodeReview.find({_id:id})
+         if(!review){
+            return res.status(400).json({message:"review not found"})
+        }
+
+        return res.status(200).json(review)
+    } catch (error) {
+        console.log("single review ERROR -> ",error);
+        
+    }
+}
