@@ -4,8 +4,11 @@ import generateCodeReview from "../services/ai.service.js"
 export const reviewCode=async(req,res)=>{
     try {
         const {code,langauge}=req.body
-        if(!code || !langauge){
-            return res.status(400).json({message:"all fields are required"})
+        if(!code){
+            return res.status(400).json({message:"code fields are required"})
+        }
+        if(!langauge){
+            return res.status(400).json({message:"langauge fields are required"})
         }
         
         const review = await generateCodeReview(code,langauge)

@@ -13,16 +13,16 @@ export const signup=async(req,res)=>{
         if(existedUser){
             return res.status(409).json({message:"user with email already exists"})
         }
-
+        
         const user=await User.create({
             userName,
             email,
             password
         })
-        const token = await genToken(user._id)
         if(!user){
-        return res.status(500).json({message:"Something went wrong while registring a user"})
+            return res.status(500).json({message:"Something went wrong while registring a user"})
         }
+        const token = await genToken(user._id)
 
         return res.status(201).json({message:"user created successfully", token, user})
     } catch (error) {
