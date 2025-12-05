@@ -59,9 +59,9 @@ function Login() {
 
         <p className="text-center mt-4 text-sm">
           Don't have an account?{" "}
-          <a href="/signup" className="text-blue-600 hover:underline">
-            Signup
-          </a>
+          
+            <button className="text-blue-600 hover:underline" onClick={()=>navigate("/signup")}>Signup</button>
+          
         </p>
       </div>
     </div>
