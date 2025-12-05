@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Review() {
   const [langauge, setLangauge] = useState("javascript");
@@ -12,6 +13,7 @@ function Review() {
   const [review, setReview] = useState("");
   const { serverUrl, token } = useContext(AuthContext);
   const markdownRef = useRef();
+  const navigate=useNavigate()
 
   const handleReview = async (e) => {
     e?.preventDefault();
@@ -63,6 +65,7 @@ function Review() {
           <h2 className="text-2xl font-semibold">AI Code Review</h2>
 
           <div className="ml-auto flex items-center gap-3">
+            <button onClick={()=>navigate("/history")} className="px-3 py-2 rounded-lg bg-blue-200">See History</button>
             <label className="text-sm text-gray-600">Language</label>
             <select
               value={langauge}
