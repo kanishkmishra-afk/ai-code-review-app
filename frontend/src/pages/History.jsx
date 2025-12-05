@@ -37,7 +37,7 @@ function History() {
     <p className="text-slate-500 dark:text-slate-400">Loading...</p>
   ) : reviews.length === 0 ? (
     <div className="rounded-xl border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-8 text-center">
-      <p className="text-slate-500 dark:text-slate-400">
+      <p className="text-white">
         No reviews yet. Run your first code review to see it here.
       </p>
     </div>
