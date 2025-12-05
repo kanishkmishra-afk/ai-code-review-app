@@ -9,7 +9,7 @@ export const AuthProvider=({children})=>{
     const [token,setToken]=useState("")
 
 
-    const serverUrl="http://localhost:3000/"
+    const serverUrl="https://ai-code-review-app-3e4y.onrender.com/"
 
     const login = async(email,password)=>{
         try {
