@@ -85,6 +85,16 @@ You may choose:
 Gemini 1.5 Flash / 2.0 Flash
 
 
+
+## Architecture Overview
+```
+┌─────────────────────────┐       ┌──────────────────────────┐
+│        Frontend         │       │         Backend          │
+│ React + Monaco Editor   │ ----> │ Node.js + Express API    │
+│ React Markdown Renderer │ <---- │ AI Service (Gemini/LLM)  │
+│ Auth Context + Routing  │       │ MongoDB (Review storage) │
+└─────────────────────────┘       └──────────────────────────┘
+```
 Flow:
 
 User pastes code → selects language
@@ -96,7 +106,6 @@ AI responds with structured review
 Review saved in MongoDB
 
 Frontend displays formatted result
-
 ## Environment Variables
 
 Create a .env file in the backend:
@@ -126,4 +135,5 @@ cd frontend
 npm install
 npm run dev
 ```
+
 
