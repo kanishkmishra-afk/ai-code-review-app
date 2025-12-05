@@ -8,6 +8,7 @@ function Login() {
         email: "",
         password: ""
     });
+    const [loading,setLoading]=React.useState(false)
     const {serverUrl,setUser,setToken,login,user}=useContext(AuthContext)
     const navigate=useNavigate()
     const setUsers=(e)=>{
@@ -16,8 +17,9 @@ function Login() {
     const handleSubmit=async(e)=>{
         e.preventDefault()
         try {
+          setLoading(true)
           await login(userDetails.email,userDetails.password)
-          
+          setLoading(false)
           navigate('/review')
         } catch (error) {
           console.log("handle Submit error in login -> ",error);
@@ -53,7 +55,7 @@ function Login() {
             type="submit"
             className="w-full p-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 

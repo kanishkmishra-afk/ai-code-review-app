@@ -10,6 +10,7 @@ function Signup() {
         email: "",
         password: ""
     });
+    const [loading,setLoading]=React.useState(false)
     const navigate=useNavigate()
 
     const {serverUrl,setUser,setToken,user}=useContext(AuthContext)
@@ -21,13 +22,14 @@ function Signup() {
         e.preventDefault()
         console.log(userDetails);
         try {
+          setLoading(true)
             const response= await axios.post(serverUrl+"api/auth/signup",{userName:userDetails.username,email:userDetails.email,password:userDetails.password})
             if(response.data){
                 setUser(response.data.user)
                 setToken(response.data.token)
                 localStorage.setItem("token",response.data.token)
             }
-            
+            setLoading(false)
             navigate('/review')
             
         } catch (error) {
@@ -74,7 +76,7 @@ function Signup() {
             type="submit"
             className="w-full p-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition"
           >
-            Signup
+            {loading ? "Signing up..." : "Signup"}
           </button>
         </form>
 
