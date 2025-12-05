@@ -84,7 +84,7 @@ You may choose:
 
 Gemini 1.5 Flash / 2.0 Flash
 
-### Core components: 
+### major components: 
 
 Auth module (JWT), AI service wrapper, Review controller (save + fetch), and React pages (Review, History, Details).
 
