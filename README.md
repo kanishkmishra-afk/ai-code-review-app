@@ -34,7 +34,7 @@ Copy review
 
 Download review as .md
 
-Save and view past reviews (history page)(upcoming)
+Save and view past reviews (history page)
 
 ## Why I Built This
 
@@ -84,7 +84,9 @@ You may choose:
 
 Gemini 1.5 Flash / 2.0 Flash
 
+### Core components: 
 
+Auth module (JWT), AI service wrapper, Review controller (save + fetch), and React pages (Review, History, Details).
 
 ## Architecture Overview
 ```
