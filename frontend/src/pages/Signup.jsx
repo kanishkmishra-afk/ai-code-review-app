@@ -28,7 +28,7 @@ function Signup() {
                 localStorage.setItem("token",response.data.token)
             }
             
-            navigate('/dashboard')
+            navigate('/review')
             
         } catch (error) {
             console.log("handle Submit Error in sigup -> ",error);
