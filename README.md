@@ -6,7 +6,6 @@ This project was built as part of an AI Builder Assignment to demonstrate end-to
 
 Live Demo: [AI Code Review Assistant](https://ai-code-review-app-1-rvyl.onrender.com/)
 
-server : https://ai-code-review-app-3e4y.onrender.com
 ## What the App Does
 
 Paste or write code in a Monaco (VS Code-like) editor
