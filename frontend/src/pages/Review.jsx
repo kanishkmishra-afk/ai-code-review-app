@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -56,7 +56,11 @@ function Review() {
     a.click();
     URL.revokeObjectURL(url);
   };
-
+useEffect(() => {
+    if (!token) {
+      navigate("/");
+    }
+  }, [token]);
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-full mx-auto p-4">
