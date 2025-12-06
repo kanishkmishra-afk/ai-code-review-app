@@ -16,7 +16,7 @@ function Review() {
   const navigate=useNavigate()
 
   const handleReview = async (e) => {
-    e?.preventDefault();
+    e.preventDefault();
     try {
       setLoading(true);
       const response = await axios.post(
