@@ -56,11 +56,7 @@ function Review() {
     a.click();
     URL.revokeObjectURL(url);
   };
-useEffect(() => {
-    if (!token) {
-      navigate("/");
-    }
-  }, [token]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-full mx-auto p-4">
