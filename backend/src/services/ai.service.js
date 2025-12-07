@@ -45,7 +45,8 @@ Respond in **clean Markdown format**.
 
   } catch (error) {
     console.error("AI Review Error:", error);
-    throw new Error("Failed to generate code review");
+    // throw new Error("Failed to generate code review");
+    return false
   }
 }
 

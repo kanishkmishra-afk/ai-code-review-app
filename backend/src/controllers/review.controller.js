@@ -12,10 +12,11 @@ export const reviewCode=async(req,res)=>{
         }
         
         const review = await generateCodeReview(code,langauge)
+        const fallbackReview="The AI service is currently unavailable. Please try again later."
         if(!review){
             console.log("quota limit exceeded");
             
-            return res.status(500).json({message:"LIMIT EXCEEDED. Please try again later."})
+            return res.status(500).json({message:"LIMIT EXCEEDED. Please try again later.", review: fallbackReview})
         }
         const genReview = await CodeReview.create({
             review,
