@@ -26,7 +26,7 @@ function Review() {
       );
       if (response.data) {
         const genReview = response.data;
-        setReview(genReview.review || genReview); // keep compatibility
+        setReview(genReview.review || genReview); 
       }
     } catch (error) {
       console.error("handle Review ERROR -> ", error);
@@ -38,7 +38,6 @@ function Review() {
   const handleCopyReview = async () => {
     if (!review) return;
     await navigator.clipboard.writeText(review);
-    // optionally: show toast
   };
 
   const handleCopyCode = async () => {
@@ -99,9 +98,9 @@ function Review() {
           </div>
         </div>
 
-        {/* Split pane */}
+        
         <div className="flex gap-4 h-[calc(100vh-140px)]">
-          {/* Editor side */}
+          
           <div className="w-1/2 bg-white rounded-lg shadow-sm overflow-hidden flex flex-col">
             <div className="px-4 py-2 border-b flex items-center justify-between">
               <div className="text-sm text-gray-700">Code Editor</div>
@@ -122,7 +121,7 @@ function Review() {
             </div>
           </div>
 
-          {/* Review side */}
+        
           <div className="w-1/2 bg-white rounded-lg shadow-sm overflow-hidden flex flex-col">
             <div className="px-4 py-2 border-b flex items-center justify-between">
               <div className="text-sm font-medium text-gray-700">AI Review</div>
