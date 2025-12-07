@@ -12,7 +12,11 @@ export const reviewCode=async(req,res)=>{
         }
         
         const review = await generateCodeReview(code,langauge)
-
+        if(!review){
+            console.log("quota limit exceeded");
+            
+            return res.status(500).json({message:"Failed to generate review"})
+        }
         const genReview = await CodeReview.create({
             review,
             code,
