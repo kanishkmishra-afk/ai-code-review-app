@@ -30,6 +30,7 @@ function Review() {
       }
     } catch (error) {
       console.error("handle Review ERROR -> ", error);
+      setReview("quota limit exceeded. please try again later.");
     } finally {
       setLoading(false);
     }
