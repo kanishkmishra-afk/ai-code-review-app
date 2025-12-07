@@ -14,7 +14,7 @@ async function generateCodeReview(code, language) {
   try {
     const genAI = getClient();
     const model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash-lite",
+      model: "gemini-2.0-flash",
     });
 
     const prompt = `
