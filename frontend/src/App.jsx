@@ -12,8 +12,8 @@ function App() {
   
   return (
   <Routes>
-    <Route path='/' element={<Login />} />
-    <Route path='/signup' element={<Signup />} />
+    <Route path='/' element={!user ? <Login />:<Navigate to="/review"/>} />
+    <Route path='/signup' element={!user ? <Signup />:<Navigate to="/review"/>} />
     <Route path='/history' element={user ? <History />:<Navigate to="/"/>} />
     <Route path='/review' element={user ? <Review />:<Navigate to="/"/>} />
   </Routes>
