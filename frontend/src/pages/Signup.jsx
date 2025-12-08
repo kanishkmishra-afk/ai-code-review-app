@@ -82,7 +82,7 @@ function Signup() {
 
         <p className="text-center mt-4 text-sm">
           Already have an account?{" "}
-          <a href="/" className="text-blue-600 hover:underline">
+          <a onClick={()=>navigate("/")} className="text-blue-600 hover:underline">
             Login
           </a>
         </p>
