@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { createContext } from "react";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext= createContext()
 
 export const AuthProvider=({children})=>{
     const [user,setUser]=useState("")
     const [token,setToken]=useState("")
+    const navigate=useNavigate()
 
 
     const serverUrl="https://ai-code-review-app-3e4y.onrender.com/"
@@ -33,10 +35,18 @@ export const AuthProvider=({children})=>{
         localStorage.removeItem("token")
     }   
 
-    
+    const checkAuth=()=>{
+        const savedUser=localStorage.getItem("user")
+        if(savedUser){
+            setUser(savedUser)
+            navigate('/review')
+        }
+
+    }
     useEffect(()=>{
         setUser(JSON.parse(localStorage.getItem("user")))
         setToken(localStorage.getItem("token"))
+        checkAuth()
     },[setUser,setToken])
 
     const value={

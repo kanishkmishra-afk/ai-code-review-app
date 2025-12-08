@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { Route, Router, Routes } from 'react-router-dom'
+import { Navigate, Route, Router, Routes } from 'react-router-dom'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Dashboard from './components/Dashboard'
@@ -14,9 +14,8 @@ function App() {
   <Routes>
     <Route path='/' element={<Login />} />
     <Route path='/signup' element={<Signup />} />
-    {user && <Route path='/dashboard' element={<Dashboard />} />}
-    {user && <Route path='/review' element={<Review />} />}
-    {user && <Route path='/history' element={<History />} />}
+    <Route path='/history' element={user ? <History />:<Navigate to="/"/>} />
+    <Route path='/review' element={user ? <Review />:<Navigate to="/"/>} />
   </Routes>
   )
 }
