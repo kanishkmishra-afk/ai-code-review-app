@@ -20,7 +20,7 @@ export const AuthProvider=({children})=>{
                 setUser(response.data.user)
                 setToken(response.data.token)
                 localStorage.setItem("token",response.data.token)
-                localStorage.setItem("user",JSON.stringify(user))
+                localStorage.setItem("user",JSON.stringify(response.data.user))
             }
             
         } catch (error) {
